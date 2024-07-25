@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/firebase/firebase-tools/blob/master/schema/firebase-config.json",
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix functions run lint",
+        "npm --prefix functions run build"
+      ]
+    }
+  ],
+  "hosting": {
+    "target": "angular-ssr",
+    "source": ".",
+    "frameworksBackend": {
+      "region": "europe-west1"
+    },
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "function": "api",
+        "region": "europe-west6"
+      }
+    ]
+  }
+}

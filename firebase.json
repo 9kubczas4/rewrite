@@ -8,7 +8,8 @@
         "node_modules",
         ".git",
         "firebase-debug.log",
-        "firebase-debug.*.log"
+        "firebase-debug.*.log",
+        "*.local"
       ],
       "predeploy": [
         "npm --prefix functions run lint",
@@ -17,8 +18,12 @@
     }
   ],
   "hosting": {
-    "target": "angular-ssr",
     "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "frameworksBackend": {
       "region": "europe-west1"
     },
@@ -26,7 +31,7 @@
       {
         "source": "/api/**",
         "function": "api",
-        "region": "europe-west6"
+        "region": "europe-west1"
       }
     ]
   }

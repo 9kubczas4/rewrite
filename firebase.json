@@ -14,7 +14,8 @@
       "predeploy": [
         "npm --prefix functions run lint",
         "npm --prefix functions run build"
-      ]
+      ],
+      "region": "us-central1"
     }
   ],
   "hosting": {
@@ -31,7 +32,7 @@
       {
         "source": "/api/**",
         "function": "api",
-        "region": "europe-west1"
+        "region": "us-central1"
       }
     ]
   }

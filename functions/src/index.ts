@@ -18,10 +18,10 @@ import {logger} from "firebase-functions/v2";
 const expressApp = express();
 expressApp.use(cors({origin: true}));
 
-expressApp.get("/api/users", async (req) => {
+expressApp.get("/api/users", async (req, res) => {
   logger.info("users : " + JSON.stringify(req.params));
   logger.info("users : " + JSON.stringify(req.query));
-  return "Hello Users";
+  res.send("Hello Users");
 });
 
 export const api = onRequest(expressApp);
